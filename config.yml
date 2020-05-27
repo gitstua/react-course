@@ -9,24 +9,24 @@ before:
     title: Welcome to GitHub
     body: 00_setup.md
     comments:
-      - 00_open-pr.md
+      - 00_create_project.md
   - type: updateBranchProtection
 
 steps:
 
-  # Step 1: User opens a pull request after cloning and validating Node is installed
+  # Step 1: User creates a project
   - title: Open a pull request
-    description: Welcome to GitHub! Let's get started with our project.
-    event: pull_request.opened
+    description: Welcome to GitHub! Let's get started...
+    event: project.created
     link: '{{ repoUrl }}/issues/1'
     actions:
       - type: gate
-        left: '%payload.pull_request.title%'
-        right: Changes
+        left: '%payload.project.name%'
+        right: Sprint1
         operator: ===
         else:
           - type: respond
-            with: Make sure the title of your PR is "Changes"
+            with: Make sure the title of your Project Board is "Sprint1"
             issue: Welcome to GitHub
       - type: closeIssue
         issue: Welcome to GitHub
