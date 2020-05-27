@@ -33,10 +33,6 @@ steps:
       - type: respond
         with: 01_components.md
         issue: Changes
-      - type: createPullRequestComment
-        body: 01_header-component-activity.md
-        file: src/App.jsx
-        position: 85
 
   # Step 2: User adds a header component
   - title: Add a header component
